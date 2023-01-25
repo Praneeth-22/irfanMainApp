@@ -1,0 +1,812 @@
+/*  import google fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Ubuntu:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inknut+Antiqua:wght@400;500;700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+}
+html{
+    scroll-behavior: smooth;
+}
+
+/* custom scroll bar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+/* all similar content styling codes */
+section{
+    padding: 100px 0;
+}
+.max-width{
+    max-width: 1300px;
+    padding: 0 80px;
+    margin: auto;
+}
+.about, .gallery, .skills,.contact, footer{
+    font-family: 'Inknut Antiqua', serif;
+    background: url("img/bg1.jpeg") no-repeat center top ;
+    background-size: cover;
+    background-attachment: fixed;  
+}
+.about .about-content, 
+.skills .skills-content,
+.contact .contact-content{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+}
+section .title{
+    position: relative;
+    text-align: center;
+    color:  #9cff00;
+    font-size: 40px;
+    font-weight: 500;
+    margin-bottom: 60px;
+    padding-bottom: 20px;
+    font-family: 'Inknut Antiqua', serif;
+}
+section .title::before{
+    content: "";
+    position: absolute;
+    bottom: 0px;
+    left: 50%;
+    width: 180px;
+    height: 3px;
+    background: #39ff13;
+    transform: translateX(-50%);
+}   
+section .title::after{
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    font-size: 20px;
+    font-weight: normal;
+    color: white;
+    padding: 0 10px;
+    background-color: rgba(30,31,33);
+    border-radius: 25px;
+    height: 50px;
+    transform: translateX(-50%);
+}
+
+/* navbar styling */
+.navbar{
+    position: fixed;
+    width: 100%;
+    z-index: 999;
+    padding: 30px 0;
+    font-family: 'Ubuntu', sans-serif;
+    transition: all 0.3s ease;
+}
+.navbar.sticky{
+    padding: 15px 0;
+    background: white;
+}
+
+.navbar .max-width{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.navbar .logo a{
+    color: #010b12;
+    font-size: 35px;
+    font-weight: 600;
+}
+.navbar .logo a span{
+    color: black;
+    transition: all 0.3s ease;
+}
+.navbar.sticky .logo a span{
+    color: #39ff14;
+}
+.navbar .menu li{
+    list-style: none;
+    display: inline-block;
+}
+.navbar .menu li a{
+    display: block;
+    color: #010b12;
+    font-size: 18px;
+    font-weight: 500;
+    margin-left: 25px;
+    transition: color 0.3s ease;
+}
+.navbar .menu li a:hover{
+    color:#39ff14;
+}
+.navbar.sticky .menu li a:hover{
+    color:#39ff14;
+}
+.navbar.sticky .menu li .dropdown-content a:hover{
+    color:#39ff14;
+}
+
+/* menu btn styling */
+.menu-btn{
+    color:black;
+    font-size: 23px;
+    cursor: pointer;
+    display: none;
+    outline: none;
+}
+.scroll-up-btn{
+    position: fixed;
+    height: 45px;
+    width: 42px;
+    background: white;
+    right: 30px;
+    bottom: 10px;
+    text-align: center;
+    line-height: 45px;
+    color: #39ff13;
+    z-index: 9999;
+    font-size: 30px;
+    border-radius: 6px;
+    border-bottom-width: 2px;
+    cursor: pointer;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s ease;
+}
+.scroll-up-btn.show{
+    bottom: 30px;
+    opacity: 1;
+    pointer-events: auto;
+}
+.scroll-up-btn:hover{
+    filter: brightness(90%);
+}
+.dropdown .dropbtn:hover{
+    color: #39ff13;
+    }
+  .dropdown-content a {
+    width: 100%;
+    color: black;
+    font-size: 18px;
+    transition: color 0.3s ease;
+    padding: 10px 10px;
+    text-decoration: none;
+    display: block;
+   text-align: center;
+   margin:10px 0px ;
+  }
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    width: 150px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    align-items: center;
+    border-radius: 5px;
+    z-index: 1;
+    margin-top:5px;
+  }
+  .dropdown-content.active{
+      display:block;
+  }
+  .dropdown .dropbtn { 
+    display: block;
+    color: black;
+    font-size: 18px;
+    font-weight: 500;
+    margin-left: 25px;
+    transition: color 0.3s ease;
+    background-color: inherit;
+    font-family: inherit;
+    outline: none;
+    border:none;
+    cursor: pointer;
+  }
+  
+/* home section styling */
+.home{
+    display: flex;
+    background: url("img/pp/try.jpeg") no-repeat center top ;
+    background-size: cover;
+    background-attachment: fixed;
+    height: 100vh;
+    color: black;
+    min-height: 500px;
+    font-family: 'Ubuntu', sans-serif;
+}
+.home .max-width{
+    margin: auto 0 auto 30px;
+}
+.home .home-content .text-1{
+    font-size: 27px;
+    color: #39ff14;
+}
+.home .home-content .text-2{
+    font-size: 75px;
+    font-weight: 600;
+    margin-left: -3px;
+    color: #39ff14;
+}
+.home .home-content .text-3{
+    font-size: 40px;
+    margin: 5px 0;
+    color: #39ff14;
+}
+.home .home-content .text-3 span{
+    color: #010b12;
+    font-weight: 500;
+}
+.home .home-content a{
+    display: inline-block;
+    background: crimson;
+    color: #fff;
+    font-size: 25px;
+    padding: 12px 36px;
+    margin-top: 20px;
+    font-weight: 400;
+    border-radius: 6px;
+    border: 2px solid crimson;
+    transition: all 0.3s ease;
+}
+.home .home-content a:hover{
+    color: crimson;
+    background: none;
+}
+
+/* about section styling */
+.about .title::after{
+    content: "who i am";
+}
+.about .about-content .left img{
+    height: 400px;
+    width: 400px;
+    object-fit: cover;
+    border-radius: 6px;
+}
+.about .about-content .right{
+    width: 55%;
+}
+.about .about-content .right .text{
+    font-size: 25px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #39ff13;
+    
+}
+
+.about .about-content .right p{
+    text-align: justify;
+    color: rgb(255, 254, 254);
+}
+
+
+
+/* My Gallery section styling */
+    /* Slideshow container */
+.gallery .title::after{
+        content: "check it out";
+    }
+.slideshow-container {
+    max-width: 1000px;
+    position: relative;
+    margin: auto;
+  }
+  
+  /* Next & previous buttons */
+  .prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -22px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+  }
+  /* Next & previous buttons */
+  .prev2, .next2 {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -22px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+  }
+   /* Next & previous buttons */
+   .prev3, .next3{
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -22px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+  }
+  .slideshow-container img{
+    width:100%;
+    height:65vh;
+    border: 1px solid #9cff00;
+    border-radius: 20px;
+    padding: 5px;
+  }
+  /* Position the "next button" to the right */
+  .next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+  }
+  /* Position the "next button" to the right */
+  .next2 {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+  }
+  /* Position the "next button" to the right */
+  .next3 {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+  }
+  
+  /* On hover, add a black background color with a little bit see-through */
+  .prev:hover, .next:hover {
+    background-color: rgba(0,0,0,0.8);
+  }
+  /* On hover, add a black background color with a little bit see-through */
+  .prev2:hover, .next2:hover {
+    background-color: rgba(0,0,0,0.8);
+  }
+   /* On hover, add a black background color with a little bit see-through */
+   .prev3:hover, .next3:hover {
+    background-color: rgba(0,0,0,0.8);
+  }
+  /* The dots/bullets/indicators */
+  .dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+  }
+  .dot2 {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+  }
+  .dot3 {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+  }
+  .act, .dot:hover {
+    background-color: #717171;
+  }
+ /* Caption text */
+.mydesign .text,.mySlides .text {
+    color: #f2f2f2;
+    font-size: 15px;
+    padding: 8px 12px;
+    position: absolute;
+    bottom: 8px;
+    width: 100%;
+    text-align: center;
+  }
+  
+  /* Fading animation */
+  .gallery .fade {
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 1.5s;
+    animation-name: fade;
+    animation-duration: 1.5s;
+  }
+  
+  @-webkit-keyframes fade {
+    from {opacity: .4} 
+    to {opacity: 1}
+  }
+  
+  @keyframes fade {
+    from {opacity: .4} 
+    to {opacity: 1}
+  }
+  .mySlides:not(#click),.mydesign:not(#click),.drender:not(#click){
+    cursor:no-drop;
+  }
+/* skills section styling */
+
+.skills .title::after{
+    content: "what i know";
+}
+.skills .row{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 4px;
+}
+.skills .row .column{
+    flex: 25%;
+    max-width: 25%;
+    padding: 0 4px;
+    margin-top: 25px;
+    display: grid;
+        place-items: center;
+}
+.skills img{
+    height: 16vh;
+    margin-bottom: 5px;
+}
+
+/* contact section styling */
+
+.contact .title::after{
+    content: "get in touch";
+}
+.contact .contact-content .column{
+    width: calc(50% - 30px);
+}
+.contact .contact-content .text{
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: white;
+   
+}
+.contact .contact-content .left {
+    text-align: justify;
+}
+.contact .contact-content .left .icons{
+    margin: 10px 0;
+}
+.contact .contact-content .row{
+    display: flex;
+    height: 65px;
+    align-items: center;
+    
+}
+.contact .contact-content .row .info{
+    margin-left: 30px;
+}
+.contact .contact-content .row .fa-user{
+    font-size: 25px;
+    color: #4263eb;
+}
+.contact .contact-content .row .fa-map-marker-alt{
+    font-size: 25px;
+    color: red;
+}
+.contact .contact-content .row .fa-envelope{
+    font-size: 25px;
+    color:rgb(95, 231, 53);
+}
+.contact .contact-content .row .fa-mobile-alt{
+    font-size: 25px;
+    color:white;
+}
+.contact .contact-content .row .fa-instagram{
+    font-size: 25px;
+    color: rgb(170, 23, 91);
+
+}
+.contact .contact-content .row .info .sub-title a{
+    color: #0073b1;
+    transition: color 0.3s ease;
+}
+.contact .contact-content .row .info .sub-title a:hover{
+    color: purple;
+
+}
+.contact .contact-content .info .head{
+    font-weight: 500;
+    color: #39ff13;
+    font-family: 'Poppins', sans-serif;
+}
+.contact .contact-content .info .sub-title{  font-family: 'Poppins', sans-serif;
+    color: white;
+}
+.contact .right form .fields{
+    display: flex;
+}
+.contact .right form .field,
+.contact .right form .fields .field{
+    height: 45px;
+    width: 100%;
+    margin-bottom: 15px;
+}
+.contact .right form .textarea{
+    height: 80px;
+    width: 100%;
+}
+.contact .right form .name{
+    margin-right: 10px;
+}
+.contact .right form .email{
+    margin-left: 10px;  
+}
+.contact .right form .field input,
+.contact .right form .textarea textarea{
+    height: 100%;
+    width: 100%;
+    border: 1px solid lightgrey;
+    border-radius: 6px;
+    outline: none;
+    padding: 0 15px;
+    font-size: 17px;
+    font-family: 'Poppins', sans-serif;
+    transition: all 0.3s ease;
+}
+.contact .right form .field input:focus,
+.contact .right form .textarea textarea:focus{
+    border-color: #b3b3b3;
+}
+.contact .right form .textarea textarea{
+    padding-top: 10px;
+    resize: none;
+}
+
+.contact .right form .button{
+    height: 47px;
+    width: 170px;
+}
+.button1 button{background-image: linear-gradient(to right, #FDFC47 0%, #24FE41  51%, #FDFC47  100%)}
+.button1 button{
+   padding: 15px 45px;
+   text-align: center;
+   text-transform: uppercase;
+   transition: 0.5s;
+   background-size: 200% auto;
+   color: white;           
+   font-size: 20px;
+   font-weight: 500;
+   border-radius: 10px;
+   cursor: pointer;
+   display: block;
+   width: 100%;
+    height: 100%;
+    outline: none;
+    border: none;
+ }
+
+ .button1 button:hover {
+   background-position: right center; /* change the direction of the change here */
+   color: #3C403D;
+   text-decoration: none;
+ }
+.alert{
+    text-align: center;
+    padding: 10px;
+    background-color: rgb(20, 260, 37);
+    color: white;
+    margin-bottom: 9px;
+    border-radius: 10px;
+    display: none;
+}
+
+/* footer section styling */
+footer{
+    background: #3C403D;
+    padding: 15px 23px;
+    color: #fff;
+    text-align: center;
+}
+footer span a{
+    color: rgb(239, 243, 31);
+    text-decoration: none;
+}
+footer span a:hover{
+    text-decoration: underline;
+}
+
+
+/* responsive media query start */
+@media (max-width: 1300px) {
+    .home .max-width{
+        margin-left: 0px;
+    }
+}
+
+@media (max-width: 1104px) {
+    .about .about-content .left img{
+        height: 350px;
+        width: 350px;
+    }
+}
+
+@media (max-width: 991px) {
+    .max-width{
+        padding: 0 50px;
+    }
+}
+@media (max-width: 947px){
+    .contact-content .column.left{
+        display: grid;
+        place-items: center;
+    }
+    .menu-btn{
+        display: block;
+        z-index: 999;
+    }   
+    section {
+         padding: 40px 0;
+    }
+    .menu-btn i.active:before{
+        content: "\f00d";
+    }
+    .navbar .menu{
+        position: fixed;
+        height: 100vh;
+        width: 100%;
+        left: -100%;
+        top: 0;
+        background: white;
+        text-align: center;
+        padding-top: 80px;
+        transition: all 0.3s ease;
+    }
+    .navbar .menu.active{
+        left: 0;
+    }
+ 
+    .navbar .menu li{
+        display: block;
+    }
+    .navbar .menu li a{
+        display: inline-block;
+        margin: 20px 0;
+        font-size: 20px;
+    }
+    
+    .navbar .menu .dropdown{
+        display:grid;
+        place-content: center;
+    }
+    .navbar .menu .dropdown .dropbtn{
+        display: inline-block;
+        margin: 20px 0;
+        font-size: 20px;
+    }
+    .navbar .menu .dropdown .dropdown-content {
+       background: whitesmoke;
+       box-shadow: none;
+       position: relative;
+    }
+    .navbar .menu .dropdown .dropdown-content a{
+        font-size: 16px;
+        padding: 0px;
+       
+    }
+    .home .home-content .text-2{
+        font-size: 70px;
+    }
+    .home .home-content .text-3{
+        font-size: 35px;
+    }
+    .home .home-content a{
+        font-size: 23px;
+        padding: 10px 30px;
+    }
+    .max-width{
+        max-width: 930px;
+    }
+    .about .about-content .column{
+        width: 100%;
+    }
+    .about .about-content .left{
+        display: flex;
+        justify-content: center;
+        margin: 0 auto 60px;
+    }
+    .about .about-content .right{
+        flex: 100%;
+    }
+    .skills .skills-content .column,
+    .contact .contact-content .column{
+        width: 100%;
+        margin-bottom: 35px;
+    }
+}
+
+@media (max-width: 690px) {
+    .max-width{
+        padding: 0 23px;
+    }
+    .home .home-content .text-2{
+        font-size: 60px;
+    }
+    .home .home-content .text-3{
+        font-size: 32px;
+    }
+    .home .home-content a{
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 500px) {
+    .home .home-content .text-2{
+        font-size: 50px;
+    }
+    .home .home-content .text-3{
+        font-size: 27px;
+    }
+    .about .about-content .right .text,
+    .skills .skills-content .left .text{
+        font-size: 19px;
+    }
+    .contact .right form .fields{
+        flex-direction: column;
+    }
+    .contact .right form .name,
+    .contact .right form .email{
+        margin: 0;
+    }
+    .scroll-up-btn{
+        right: 15px;
+        bottom: 15px;
+        height: 38px;
+        width: 35px;
+        font-size: 23px;
+        line-height: 38px;
+    }
+}
+/* Responsive layout - makes a two column-layout instead of four columns */
+@media screen and (max-width: 800px) {
+    .skills .row .column {
+      flex: 50%;
+      max-width: 50%;
+    }
+  }
+  
+  /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+  @media screen and (max-width: 600px) {
+   .skills .row .column {
+      flex: 100%;
+      max-width: 100%;
+    }
+  }
+  /* On smaller screens, decrease text size */
+  @media only screen and (max-width: 300px) {
+    .prev, .next,.gallery .text {font-size: 11px}
+  }
+  @media (max-width:400px){
+    .slideshow-container img{
+        width:100%;
+        height:45vh;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+      }
+  }
